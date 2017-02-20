@@ -20,7 +20,6 @@ public class MemoriaComponent {
         lances.put(MockLicitacao.recuperaLicitacao().get(0), null);
         lances.put(MockLicitacao.recuperaLicitacao().get(1), null);
         lances.put(MockLicitacao.recuperaLicitacao().get(2), null);
-
     }
 
     public List<Licitacao> getLicitacaoList() {
@@ -32,7 +31,7 @@ public class MemoriaComponent {
     }
 
     public void addOferta(Licitacao licitacao, Oferta oferta){
-        if (lances.get(licitacao)==null)
+        if (lances.get(licitacao) == null)
             lances.put(licitacao, new ArrayList<>());
         lances.get(licitacao).add(oferta);
     }

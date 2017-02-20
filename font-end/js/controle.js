@@ -17,6 +17,7 @@
             incluir: { method: 'POST', url: 'http://localhost:8080/licitacao/incluir' ,isArray: false},
             listarAbertas: { method: 'GET', url: 'http://localhost:8080/licitacao/listarAbertas' ,isArray: true},
             listOfertas: { method: 'GET', url: 'http://localhost:8080/licitacao/recuperarOfertas' ,isArray: true},
+            ofertar: { method: 'POST', url: 'http://localhost:8080/licitacao/ofertar' ,isArray: false},
             update: { method: 'PUT' }
         })
 
@@ -32,12 +33,6 @@
         vm.licitacao.dataLimite = new Date();
         vm.licitacao.dataLimite = null;
 
-        apiService.texto(function(data){
-        vm.valor = data;
-        },function(erro){
-            alert(erro);
-        });
-
         vm.gridOptions = {
             data : 'vm.licitacaoList',
             columnDefs: [
@@ -52,8 +47,6 @@
         var listarTodos = function() {
             apiService.listarTodos(function (data) {
                 vm.licitacaoList = data;
-            }, function (erro) {
-                alert(erro);
             });
         }
 
@@ -107,11 +100,13 @@
         };
 
         vm.ofertar = function(){
-            $rootScope.licitacao;
+            apiService.ofertar(vm.oferta, function (data) {
+                listOfertas();
+            });
         }
 
         var listOfertas = function() {
-            apiService.listOfertas(null,    function (data) {
+            apiService.listOfertas(function (data) {
                 vm.ofertasList = data;
             });
         }

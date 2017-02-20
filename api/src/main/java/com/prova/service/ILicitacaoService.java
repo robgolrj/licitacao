@@ -7,6 +7,8 @@ import com.prova.domain.Oferta;
 import java.util.List;
 
 public interface ILicitacaoService {
+    void verificarLicitacaoEncerrada();
+
     List<Licitacao> listarTodos();
 
     List<Licitacao> listarLicitacoesAberta();

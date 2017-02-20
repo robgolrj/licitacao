@@ -4,6 +4,7 @@ import com.prova.MemoriaComponent;
 import com.prova.domain.Licitacao;
 import com.prova.domain.Oferta;
 import com.prova.domain.StatusEnum;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,6 +16,18 @@ import java.util.List;
 public class LicitacaoService implements ILicitacaoService{
     @Resource
     MemoriaComponent memoriaComponent;
+
+    @Override
+    public void verificarLicitacaoEncerrada(){
+        System.out.print("Foi");
+
+        Calendar calendar = Calendar.getInstance();
+        for (Licitacao licitacao : listarLicitacoesAberta()){
+            if(licitacao.getDataLimite().before(calendar.getTime())){
+                licitacao.setStatus(StatusEnum.F);
+            }
+        }
+    }
 
     @Override
     public List<Licitacao> listarTodos() {

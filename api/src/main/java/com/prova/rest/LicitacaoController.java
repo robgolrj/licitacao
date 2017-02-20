@@ -46,8 +46,10 @@ public class LicitacaoController {
         return new HttpEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping("/ofertarLance")
-    public HttpEntity ofertarLance(@RequestBody Licitacao licitacao, Oferta oferta) {
+    @RequestMapping("/ofertar")
+    @CrossOrigin(origins = "*")
+    public HttpEntity ofertarLance(/*@RequestBody Licitacao licitacao,*/ @RequestBody Oferta oferta) {
+        Licitacao licitacao = licitacaoService.listarLicitacoesAberta().get(0);
         licitacaoService.ofertarLance(licitacao, oferta);
         return new HttpEntity<>(HttpStatus.OK);
     }

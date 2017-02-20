@@ -1,7 +1,5 @@
 package com.prova.domain;
 
-import org.springframework.web.context.annotation.SessionScope;
-
 import java.math.BigDecimal;
 
 public class Oferta {
