@@ -36,6 +36,10 @@
     <script src="js/controle.js"></script>
     <script src="https://www.w3schools.com/lib/w3data.js"></script>
 
+    <script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
+    <link href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-touch.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 
 </head>
 
@@ -43,7 +47,7 @@
 
 <div id="wrapper">
     <div w3-include-html="menu.html"></div>
-    <div id="page-wrapper">
+    <div id="page-wrapper" ng-app="api" ng-controller="licitacaoController as vm">
 
         <div class="container-fluid">
 
@@ -61,8 +65,15 @@
                 </div>
             </div>
             <!-- /.row -->
-            <div class="row" ng-app="api" class="container" ng-controller="getBands as vm">
-                {{vm.valor}}
+            <div class="row"  class="container" >
+                <div class="col-lg-12">
+                    <div class="row form-group">
+                        <a type="button" href="lances.html" class="btn btn-info">Participar</a>
+                    </div>
+                    <div class="row">
+                        <div ui-grid="vm.gridOptions" ui-grid-selection></div>
+                    </div>
+                </div>
             </div>
 
             <!-- /.container-fluid -->

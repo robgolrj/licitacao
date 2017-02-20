@@ -1,5 +1,9 @@
 package com.prova.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.prova.commom.JsonDateDeserializer;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -10,6 +14,7 @@ public class Licitacao {
     String descricao;
     BigDecimal valorBase;
     BigDecimal valorIncremento;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
     Date dataLimite;
     StatusEnum status;
 
