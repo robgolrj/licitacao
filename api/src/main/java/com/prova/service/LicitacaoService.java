@@ -19,8 +19,6 @@ public class LicitacaoService implements ILicitacaoService{
 
     @Override
     public void verificarLicitacaoEncerrada(){
-        System.out.print("Foi");
-
         Calendar calendar = Calendar.getInstance();
         for (Licitacao licitacao : listarLicitacoesAberta()){
             if(licitacao.getDataLimite().before(calendar.getTime())){
