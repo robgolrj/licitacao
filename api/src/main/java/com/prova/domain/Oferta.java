@@ -1,8 +1,9 @@
 package com.prova.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Oferta {
+public class Oferta implements Serializable {
     BigDecimal lance;
     String login;
 

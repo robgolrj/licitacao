@@ -4,13 +4,14 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.prova.commom.JsonDateDeserializer;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * Classe que representa uma licitacao
  */
-public class Licitacao {
+public class Licitacao implements Serializable {
     String descricao;
     BigDecimal valorBase;
     BigDecimal valorIncremento;
